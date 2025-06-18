@@ -48,7 +48,8 @@
 		"fabric-api": "*",
 		"fabric-language-kotlin": "*"
 	},
-	"suggests": {
-		"another-mod": "*"
+	"recommends": {
+		"jade": "*",
+		"wthit": "*"
 	}
 }
