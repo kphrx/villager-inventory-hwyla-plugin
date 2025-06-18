@@ -1,4 +1,4 @@
-package dev.kpherox.vijp
+package dev.kpherox.vihp
 
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory

@@ -1,0 +1,10 @@
+{
+  "villagerinventory:plugin": {
+    "entrypoints": {
+      "common": "dev.kpherox.vihp.VillagerInventoryWthitCommonPlugin",
+      "client": "dev.kpherox.vihp.VillagerInventoryWthitClientPlugin"
+    },
+    "side": "*",
+    "required": []
+  }
+}

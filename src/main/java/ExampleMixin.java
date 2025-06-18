@@ -1,4 +1,4 @@
-package dev.kpherox.vijp.mixin;
+package dev.kpherox.vihp.mixin;
 
 import net.minecraft.server.MinecraftServer;
 import org.spongepowered.asm.mixin.Mixin;
