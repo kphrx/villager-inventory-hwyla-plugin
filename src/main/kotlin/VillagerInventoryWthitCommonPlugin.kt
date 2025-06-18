@@ -1,13 +1,13 @@
 package dev.kpherox.vihp
 
 import org.slf4j.LoggerFactory
-import mcp.mobius.waila.api.IClientRegistrar;
-import mcp.mobius.waila.api.IWailaClientPlugin;
+import mcp.mobius.waila.api.ICommonRegistrar;
+import mcp.mobius.waila.api.IWailaCommonPlugin;
 
-object VillagerInventoryWthitClientPlugin : IWailaClientPlugin {
+object VillagerInventoryWthitCommonPlugin : IWailaCommonPlugin {
 	private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
-	override fun register(registrar : IClientRegistrar) {
+	override fun register(registrar : ICommonRegistrar) {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
