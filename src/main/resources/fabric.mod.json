@@ -1,6 +1,6 @@
 {
 	"schemaVersion": 1,
-	"id": "template-mod",
+	"id": "villager-inventory-jade-plugin",
 	"version": "${version}",
 	"name": "Template Mod",
 	"description": "This is an example description! Tell everyone what your mod is about!",
@@ -12,32 +12,32 @@
 		"sources": "https://github.com/FabricMC/fabric-example-mod"
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/template-mod/icon.png",
+	"icon": "assets/villager-inventory-jade-plugin/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
 			{
-				"value": "dev.kpherox.template_mod.TemplateMod",
+				"value": "dev.kpherox.vijp.VillagerInventoryJadePlugin",
 				"adapter": "kotlin"
 			}
 		],
 		"client": [
 			{
-				"value": "dev.kpherox.template_mod.TemplateModClient",
+				"value": "dev.kpherox.vijp.VillagerInventoryJadePluginClient",
 				"adapter": "kotlin"
 			}
 		],
 		"fabric-datagen": [
 			{
-				"value": "dev.kpherox.template_mod.TemplateModDataGenerator",
+				"value": "dev.kpherox.vijp.VillagerInventoryJadePluginDataGenerator",
 				"adapter": "kotlin"
 			}
 		]
 	},
 	"mixins": [
-		"template-mod.mixins.json",
+		"villager-inventory-jade-plugin.mixins.json",
 		{
-			"config": "template-mod.client.mixins.json",
+			"config": "villager-inventory-jade-plugin.client.mixins.json",
 			"environment": "client"
 		}
 	],

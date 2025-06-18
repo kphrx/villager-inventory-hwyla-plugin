@@ -1,10 +1,10 @@
-package dev.kpherox.template_mod
+package dev.kpherox.vijp
 
 import net.fabricmc.api.ModInitializer
 import org.slf4j.LoggerFactory
 
-object TemplateMod : ModInitializer {
-    private val logger = LoggerFactory.getLogger("template-mod")
+object VillagerInventoryJadePlugin : ModInitializer {
+    private val logger = LoggerFactory.getLogger("villager-inventory-jade-plugin")
 
 	override fun onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.

@@ -1,8 +1,8 @@
-package dev.kpherox.template_mod
+package dev.kpherox.vijp
 
 import net.fabricmc.api.ClientModInitializer
 
-object TemplateModClient : ClientModInitializer {
+object VillagerInventoryJadePluginClient : ClientModInitializer {
 	override fun onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 	}

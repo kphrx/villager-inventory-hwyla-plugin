@@ -1,4 +1,4 @@
-package dev.kpherox.template_mod.mixin.client;
+package dev.kpherox.vijp.mixin.client;
 
 import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
