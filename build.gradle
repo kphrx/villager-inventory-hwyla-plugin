@@ -35,7 +35,6 @@ loom {
 
 	mods {
 		"villager-inventory-hwyla-plugin" {
-			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
 	}
