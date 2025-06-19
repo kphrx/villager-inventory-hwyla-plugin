@@ -1,4 +1,4 @@
-package dev.kpherox.vihp
+package dev.kpherox.vihp.jade
 
 import net.minecraft.world.entity.npc.Villager
 
@@ -9,7 +9,7 @@ import snownee.jade.api.IWailaPlugin
 import snownee.jade.api.WailaPlugin
 
 @WailaPlugin
-object VillagerInventoryJadePlugin : IWailaPlugin {
+object VillagerInventoryPlugin : IWailaPlugin {
 	private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
 	override fun registerClient(registration : IWailaClientRegistration) {

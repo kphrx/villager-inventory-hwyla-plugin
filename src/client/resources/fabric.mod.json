@@ -17,7 +17,7 @@
 	"entrypoints": {
 		"jade": [
 			{
-				"value": "dev.kpherox.vihp.VillagerInventoryJadePlugin",
+				"value": "dev.kpherox.vihp.jade.VillagerInventoryPlugin",
 				"adapter": "kotlin"
 			}
 		]

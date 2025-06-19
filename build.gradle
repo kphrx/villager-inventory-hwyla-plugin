@@ -56,7 +56,7 @@ dependencies {
 	modImplementation libs.wthit
 }
 
-processResources {
+processClientResources {
 	inputs.property "version", project.version
 
 	filesMatching("fabric.mod.json") {
