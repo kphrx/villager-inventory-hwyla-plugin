@@ -1,10 +1,15 @@
-package dev.kpherox.vihp.jade
+package dev.kpherox.vihp.client.jade
+
+import kotlin.jvm.optionals.getOrDefault
+
+import dev.kpherox.vihp.jade.VillagerInventoryPlugin as VillagerInventoryServerPlugin
+import dev.kpherox.vihp.jade.VillagerInventoryProvider as VillagerInventoryDataProvider
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.npc.Villager
 import net.minecraft.world.item.ItemStack
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.network.chat.Component
+import net.minecraft.resources.ResourceLocation
 
 import snownee.jade.api.EntityAccessor
 import snownee.jade.api.config.IPluginConfig
@@ -16,14 +21,19 @@ import snownee.jade.api.IEntityComponentProvider
 
 object VillagerInventoryProvider: IEntityComponentProvider {
 	override fun getUid(): ResourceLocation {
-		return ResourceLocation.fromNamespaceAndPath("vihp", "villager_inventory")
+		return VillagerInventoryServerPlugin.INVENTORY
 	}
 
 	override fun appendTooltip(tooltip: ITooltip, accessor: EntityAccessor, config: IPluginConfig) {
-		val inventory = (accessor.getEntity() as Villager).getInventory().getItems()
+		val data = accessor.getServerData()
+		if (!data.contains(VillagerInventoryDataProvider.INVENTORY_KEY)) {
+			return
+		}
+
+		val inventory = accessor.decodeFromNbt<List<ItemStack>>(ItemStack.OPTIONAL_LIST_STREAM_CODEC, data.get(VillagerInventoryDataProvider.INVENTORY_KEY))
 
 		val elements = arrayListOf<Element>()
-		for (itemStack in inventory) {
+		for (itemStack in inventory.getOrDefault(emptyList())) {
 			// UNIVERSAL_ITEM_STORAGE_SHOW_NAME_AMOUNT
 			// UNIVERSAL_ITEM_STORAGE_ITEMS_PER_LINE
 			elements.add(JadeUI.smallItem(itemStack).refreshNarration())

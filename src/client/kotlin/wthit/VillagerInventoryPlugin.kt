@@ -1,4 +1,4 @@
-package dev.kpherox.vihp.wthit
+package dev.kpherox.vihp.client.wthit
 
 import net.minecraft.world.entity.npc.Villager
 

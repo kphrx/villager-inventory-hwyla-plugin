@@ -1,10 +1,9 @@
-package dev.kpherox.vihp.jade
+package dev.kpherox.vihp.client.jade
 
 import net.minecraft.world.entity.npc.Villager
 
 import org.slf4j.LoggerFactory
 import snownee.jade.api.IWailaClientRegistration
-import snownee.jade.api.IWailaCommonRegistration
 import snownee.jade.api.IWailaPlugin
 import snownee.jade.api.WailaPlugin
 
