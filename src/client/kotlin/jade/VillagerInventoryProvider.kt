@@ -34,13 +34,7 @@ object VillagerInventoryProvider: IEntityComponentProvider {
 
 		val elements = arrayListOf<Element>()
 		for (itemStack in inventory.getOrDefault(emptyList())) {
-			// UNIVERSAL_ITEM_STORAGE_SHOW_NAME_AMOUNT
-			// UNIVERSAL_ITEM_STORAGE_ITEMS_PER_LINE
-			elements.add(JadeUI.smallItem(itemStack).refreshNarration())
-			val s = IDisplayHelper.get().humanReadableNumber(itemStack.getCount().toDouble(), "", false, null)
-			val width = Minecraft.getInstance().font.width(s)
-			elements.add(JadeUI.text(Component.literal(s).append("× ").append(IDisplayHelper.get().stripColor(itemStack.getHoverName()))).narration(""))
-			// elements.add(JadeUI.item(stack))
+			elements.add(JadeUI.item(itemStack))
 		}
 		tooltip.add(elements)
 	}
