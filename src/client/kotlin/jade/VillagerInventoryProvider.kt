@@ -9,7 +9,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.npc.Villager
 import net.minecraft.world.item.ItemStack
 import net.minecraft.network.chat.Component
-import net.minecraft.resources.ResourceLocation
 
 import snownee.jade.api.EntityAccessor
 import snownee.jade.api.config.IPluginConfig
@@ -20,9 +19,7 @@ import snownee.jade.api.ui.IDisplayHelper
 import snownee.jade.api.IEntityComponentProvider
 
 object VillagerInventoryProvider: IEntityComponentProvider {
-	override fun getUid(): ResourceLocation {
-		return VillagerInventoryServerPlugin.INVENTORY
-	}
+	override fun getUid() = VillagerInventoryServerPlugin.INVENTORY
 
 	override fun appendTooltip(tooltip: ITooltip, accessor: EntityAccessor, config: IPluginConfig) {
 		val data = accessor.getServerData()
