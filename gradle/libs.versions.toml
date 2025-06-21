@@ -1,6 +1,7 @@
 [versions]
 kotlin = "2.1.21"
 fabric-loom = "1.10-SNAPSHOT"
+minotaur = "2.+"
 minecraft = "1.21.6"
 fabric-loader = "0.16.14"
 fabric-api = "0.127.0+1.21.6"
@@ -19,6 +20,7 @@ wthit = { group = "maven.modrinth", name = "wthit", version.ref = "wthit" }
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
+minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
 
 [bundles]
 fabric = ["fabric-loader", "fabric-api", "fabric-language-kotlin"]

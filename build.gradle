@@ -2,6 +2,7 @@ plugins {
 	alias libs.plugins.fabric.loom
 	id 'maven-publish'
 	alias libs.plugins.kotlin
+	alias libs.plugins.minotaur
 }
 
 version = project.mod_version
@@ -124,5 +125,17 @@ publishing {
 				password = System.getenv("GITHUB_TOKEN")
 			}
 		}
+	}
+}
+
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN")
+	projectId = project.base.archivesName
+	versionType = project.mod_version_type
+	uploadFile = remapJar
+	gameVersions = [libs.versions.minecraft.get()]
+	dependencies {
+		optional.version "jade", libs.versions.jade.get()
+		optional.version "wthit", libs.versions.wthit.get()
 	}
 }
