@@ -2,10 +2,10 @@
 	"schemaVersion": 1,
 	"id": "villager-inventory-hwyla-plugin",
 	"version": "${version}",
-	"name": "Villager Inventory Plugin for Jade/WTHIT",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Villager Inventory Plugin for Hwyla forks",
+	"description": "Show villager's inventory slots to tooltip.",
 	"authors": [
-		"Me!"
+		"kPherox"
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
