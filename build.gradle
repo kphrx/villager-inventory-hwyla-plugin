@@ -138,4 +138,6 @@ modrinth {
 		optional.version "jade", libs.versions.jade.get()
 		optional.version "wthit", libs.versions.wthit.get()
 	}
+
+	syncBodyFrom = rootProject.file("README.md").text
 }
