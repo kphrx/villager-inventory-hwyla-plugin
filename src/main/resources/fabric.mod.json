@@ -30,7 +30,6 @@
 		"fabricloader": ">=${fabricloader}",
 		"minecraft": "~${minecraft}",
 		"java": ">=21",
-		"fabric-api": "*",
 		"fabric-language-kotlin": "*"
 	},
 	"recommends": {

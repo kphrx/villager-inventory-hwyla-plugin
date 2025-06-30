@@ -4,7 +4,6 @@ fabric-loom = "1.10-SNAPSHOT"
 minotaur = "2.+"
 minecraft = "1.21.6"
 fabric-loader = "0.16.14"
-fabric-api = "0.127.0+1.21.6"
 fabric-kotlin = "1.13.3+kotlin.2.1.21"
 jade = "19.0.1+fabric"
 wthit = "fabric-15.0.2"
@@ -12,7 +11,6 @@ wthit = "fabric-15.0.2"
 [libraries]
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
-fabric-api = { group = "net.fabricmc.fabric-api", name = "fabric-api", version.ref = "fabric-api" }
 fabric-language-kotlin = { group = "net.fabricmc", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
 jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
 wthit = { group = "maven.modrinth", name = "wthit", version.ref = "wthit" }
@@ -23,4 +21,4 @@ fabric-loom = { id = "fabric-loom", version.ref = "fabric-loom" }
 minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
 
 [bundles]
-fabric = ["fabric-loader", "fabric-api", "fabric-language-kotlin"]
+fabric = ["fabric-loader", "fabric-language-kotlin"]
