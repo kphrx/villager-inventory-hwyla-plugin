@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory
 import mcp.mobius.waila.api.ICommonRegistrar
 import mcp.mobius.waila.api.IWailaCommonPlugin
 
-object VillagerInventoryPlugin : IWailaCommonPlugin {
+class VillagerInventoryPlugin : IWailaCommonPlugin {
 	private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
 	override fun register(registrar : ICommonRegistrar) {
