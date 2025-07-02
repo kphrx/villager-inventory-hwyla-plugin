@@ -1,3 +1,3 @@
 # Villager Inventory Plugin
 
-Show villager's inventory slots to Hwyla's tooltip. Supported Jade ~~or WTHIT~~.
+Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
