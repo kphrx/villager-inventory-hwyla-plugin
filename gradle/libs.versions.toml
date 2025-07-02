@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.1.21"
+kotlin = "2.2.0"
 ktfmt = "0.23.0"
 fabric-loom = "1.10-SNAPSHOT"
 minotaur = "2.+"
