@@ -3,16 +3,16 @@
 # certain platforms or Java versions, and provides a first line of defence
 # against bad commits.
 
-name: build
+name: deploy
 on:
-  pull_request:
-    branches: [master]
   push:
-    branches: [master]
+    tags: ['**']
 
 jobs:
   build:
     runs-on: ubuntu-24.04
+    environment:
+      name: Modrinth
     steps:
       - name: checkout repository
         uses: actions/checkout@v4
@@ -25,8 +25,26 @@ jobs:
           distribution: 'microsoft'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
+      - name: version type
+        uses: actions/github-script@v7
+        id: version-type
+        with:
+          script: |
+            const version = '${{ github.ref_name }}';
+            const isPrerelease = version.startsWith('0.') || version.split('-').length > 1;
+            if (!isPrerelease) {
+              return 'release';
+            }
+            if (version.startsWith('0.')) {
+              return 'alpha';
+            }
+            const prerelease = version.split('-')[1];
+            if (prerelease.split('.')[0] === 'alpha') {
+              return 'alpha';
+            }
+            return 'beta';
       - name: build
-        run: ./gradlew build
+        run: ./gradlew modrinth -Pmod_version=${{ github.ref_name }} -Pmod_version_type=${{ steps.version-type.outputs.result }}
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
         with:
