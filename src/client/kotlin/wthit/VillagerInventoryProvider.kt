@@ -15,6 +15,7 @@ import mcp.mobius.waila.api.IEntityAccessor
 import mcp.mobius.waila.api.IEntityComponentProvider
 import mcp.mobius.waila.api.IPluginConfig
 import mcp.mobius.waila.api.ITooltip
+import mcp.mobius.waila.api.component.ItemListComponent
 
 object VillagerInventoryProvider: IEntityComponentProvider {
 	override fun appendBody(tooltip: ITooltip, accessor: IEntityAccessor, config: IPluginConfig) {
@@ -24,9 +25,7 @@ object VillagerInventoryProvider: IEntityComponentProvider {
 		}
 		val inventory = decode(accessor.getWorld(), tag)
 
-		for (itemStack in inventory) {
-			tooltip.addLine(itemStack.getHoverName());
-		}
+		tooltip.addLine(ItemListComponent(inventory))
 	}
 
 	fun decode(level: Level, tag: Tag): List<ItemStack> {
