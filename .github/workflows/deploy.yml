@@ -44,6 +44,8 @@ jobs:
             }
             return 'beta';
       - name: build
+        env:
+          MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
         run: ./gradlew modrinth -Pmod_version=${{ github.ref_name }} -Pmod_version_type=${{ steps.version-type.outputs.result }}
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
