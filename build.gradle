@@ -136,8 +136,9 @@ modrinth {
 	uploadFile = remapJar
 	gameVersions = [libs.versions.minecraft.get(), *project.minecraft_backword_compatible_versions.split(",").collect { it.trim() }.findAll { it != "" }]
 	dependencies {
-		optional.version "jade", libs.versions.jade.get()
-		optional.version "wthit", libs.versions.wthit.get()
+		required.project "fabric-language-kotlin"
+		optional.project "jade"
+		optional.project "wthit"
 	}
 
 	syncBodyFrom = rootProject.file("README.md").text
