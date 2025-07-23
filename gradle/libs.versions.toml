@@ -12,7 +12,7 @@ wthit = "fabric-16.0.0"
 [libraries]
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
-fabric-language-kotlin = { group = "net.fabricmc", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
+fabric-language-kotlin = { group = "maven.modrinth", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
 jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
 wthit = { group = "maven.modrinth", name = "wthit", version.ref = "wthit" }
 
