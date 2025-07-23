@@ -4,3 +4,12 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      kotlin:
+        patterns:
+          - "org.jetbrains.kotlin.jvm"
+          - "maven.modrinth:fabric-language-kotlin"
+      fabric:
+        patterns:
+          - "fabric-loom"
+          - "net.fabricmc:fabric-loader"
