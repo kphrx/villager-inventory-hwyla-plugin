@@ -134,7 +134,7 @@ modrinth {
 	projectId = project.base.archivesName
 	versionType = project.mod_version_type
 	uploadFile = remapJar
-	gameVersions = [libs.versions.minecraft.get(), *project.minecraft_backword_compatible_versions.split(",").collect { it.trim() }.findAll { it != "" }]
+	gameVersions = [libs.versions.minecraft.get(), *project.minecraft_forword_compatible_versions.split(",").collect { it.trim() }.findAll { it != "" }]
 	dependencies {
 		required.project "fabric-language-kotlin"
 		optional.project "jade"
