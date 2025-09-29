@@ -11,6 +11,8 @@ import snownee.jade.api.WailaPlugin
 object VillagerInventoryPlugin : IWailaPlugin {
   val INVENTORY = ResourceLocation.fromNamespaceAndPath("vihp", "villager_inventory")
 
+  val INVENTORY_KEY = "vihp:inventory"
+
   private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
   override fun register(registration: IWailaCommonRegistration) {
