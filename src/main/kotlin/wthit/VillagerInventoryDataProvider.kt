@@ -5,7 +5,6 @@ import mcp.mobius.waila.api.IDataProvider
 import mcp.mobius.waila.api.IDataWriter
 import mcp.mobius.waila.api.IPluginConfig
 import mcp.mobius.waila.api.IServerAccessor
-import mcp.mobius.waila.api.data.ItemData
 import net.minecraft.world.entity.npc.Villager
 
 object VillagerInventoryProvider : IDataProvider<Villager> {
@@ -14,7 +13,7 @@ object VillagerInventoryProvider : IDataProvider<Villager> {
       accessor: IServerAccessor<Villager>,
       config: IPluginConfig
   ) {
-    val itemData = ItemData.of(config)
+    val itemData = InventoryData.of(config)
     val inventory = VillagerInventoryAccessor.getInventory(accessor.getTarget())
     itemData.add(inventory)
 
