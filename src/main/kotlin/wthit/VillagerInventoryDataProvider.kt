@@ -13,6 +13,10 @@ object VillagerInventoryProvider : IDataProvider<Villager> {
       accessor: IServerAccessor<Villager>,
       config: IPluginConfig
   ) {
-    VillagerInventoryAccessor.putWithEncode(data.raw(), accessor.getWorld(), accessor.getTarget())
+    val itemData = InventoryData.of(config)
+    val inventory = VillagerInventoryAccessor.getInventory(accessor.getTarget())
+    itemData.add(inventory)
+
+    data.addImmediate(itemData)
   }
 }

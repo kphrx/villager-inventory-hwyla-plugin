@@ -11,13 +11,12 @@ import snownee.jade.api.WailaPlugin
 object VillagerInventoryPlugin : IWailaPlugin {
   val INVENTORY = ResourceLocation.fromNamespaceAndPath("vihp", "villager_inventory")
 
+  val INVENTORY_KEY = "vihp:inventory"
+
   private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
   override fun register(registration: IWailaCommonRegistration) {
-    // This code runs as soon as Minecraft is in a mod-load-ready state.
-    // However, some things (like resources) may still be uninitialized.
-    // Proceed with mild caution.
-    logger.info("Hello Fabric world!")
+    logger.info("[Villager Inventory Plugin for Jade] Server side startup")
     registration.registerEntityDataProvider(VillagerInventoryProvider, Villager::class.java)
   }
 }

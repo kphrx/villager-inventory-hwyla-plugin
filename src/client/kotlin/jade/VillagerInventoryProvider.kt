@@ -1,8 +1,8 @@
 package dev.kpherox.vihp.client.jade
 
-import dev.kpherox.vihp.VillagerInventoryAccessor
 import dev.kpherox.vihp.jade.VillagerInventoryPlugin as VillagerInventoryServerPlugin
 import kotlin.jvm.optionals.getOrDefault
+import net.minecraft.world.item.ItemStack
 import snownee.jade.api.EntityAccessor
 import snownee.jade.api.IEntityComponentProvider
 import snownee.jade.api.ITooltip
@@ -15,13 +15,14 @@ object VillagerInventoryProvider : IEntityComponentProvider {
 
   override fun appendTooltip(tooltip: ITooltip, accessor: EntityAccessor, config: IPluginConfig) {
     val data = accessor.getServerData()
-    if (!data.contains(VillagerInventoryAccessor.INVENTORY_KEY)) {
+    if (!data.contains(VillagerInventoryServerPlugin.INVENTORY_KEY)) {
       return
     }
 
     val inventory =
         accessor.decodeFromNbt(
-            VillagerInventoryAccessor.CODEC, data.get(VillagerInventoryAccessor.INVENTORY_KEY))
+            ItemStack.OPTIONAL_LIST_STREAM_CODEC,
+            data.get(VillagerInventoryServerPlugin.INVENTORY_KEY))
 
     val elements = arrayListOf<Element>()
     for (itemStack in inventory.getOrDefault(emptyList())) {
