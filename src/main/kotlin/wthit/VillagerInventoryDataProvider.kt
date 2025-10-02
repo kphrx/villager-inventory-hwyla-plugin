@@ -13,10 +13,8 @@ object VillagerInventoryProvider : IDataProvider<Villager> {
       accessor: IServerAccessor<Villager>,
       config: IPluginConfig
   ) {
-    val itemData = InventoryData.of(config)
     val inventory = VillagerInventoryAccessor.getInventory(accessor.getTarget())
-    itemData.add(inventory)
 
-    data.addImmediate(itemData)
+    data.addImmediate(InventoryData(inventory))
   }
 }
