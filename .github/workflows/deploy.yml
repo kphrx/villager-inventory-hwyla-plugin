@@ -31,7 +31,7 @@ jobs:
         id: version-type
         with:
           script: |
-            const version = '${{ github.ref_name }}';
+            const version = process.env.GITHUB_REF_NAME;
             const isPrerelease = version.startsWith('0.') || version.split('-').length > 1;
             if (!isPrerelease) {
               return 'release';
@@ -47,7 +47,8 @@ jobs:
       - name: build
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
-        run: ./gradlew modrinth -Pmod_version=${{ github.ref_name }} -Pmod_version_type=${{ steps.version-type.outputs.result }}
+          VERSION_TYPE: ${{ steps.version-type.outputs.result }}
+        run: ./gradlew modrinth -Pmod_version="${GITHUB_REF_NAME}" -Pmod_version_type="${VERSION_TYPE}"
       - name: capture build artifacts
         uses: actions/upload-artifact@v4
         with:
