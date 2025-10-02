@@ -133,6 +133,7 @@ modrinth {
 	token = System.getenv("MODRINTH_TOKEN")
 	projectId = project.base.archivesName
 	versionType = project.mod_version_type
+	changelog = project.changelog
 	uploadFile = remapJar
 	gameVersions = [libs.versions.minecraft.get(), *project.minecraft_forword_compatible_versions.split(",").collect { it.trim() }.findAll { it != "" }]
 	dependencies {
