@@ -119,6 +119,7 @@ publishing {
 val mod_version_type: String by project
 val modrinth_changelog: String? by project
 val minecraft_forword_compatible_versions: String by project
+val release: String? by project
 
 modrinth {
   token.set(System.getenv("MODRINTH_TOKEN"))
@@ -136,6 +137,7 @@ modrinth {
     optional.project("jade")
     optional.project("wthit")
   }
+  debugMode.set(release == null)
 
   syncBodyFrom.set(rootProject.file("README.md").readText())
 }
