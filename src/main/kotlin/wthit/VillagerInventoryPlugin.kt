@@ -2,7 +2,7 @@ package dev.kpherox.vihp.wthit
 
 import mcp.mobius.waila.api.ICommonRegistrar
 import mcp.mobius.waila.api.IWailaCommonPlugin
-import net.minecraft.world.entity.npc.Villager
+import net.minecraft.world.entity.PathfinderMob
 import org.slf4j.LoggerFactory
 
 class VillagerInventoryPlugin : IWailaCommonPlugin {
@@ -11,6 +11,6 @@ class VillagerInventoryPlugin : IWailaCommonPlugin {
   override fun register(registrar: ICommonRegistrar) {
     logger.info("[Villager Inventory Plugin for WTHIT] Server side startup")
     registrar.dataType(InventoryData.TYPE, InventoryData.CODEC)
-    registrar.entityData(VillagerInventoryProvider, Villager::class.java)
+    registrar.entityData(InventoryDataProvider, PathfinderMob::class.java)
   }
 }

@@ -1,6 +1,6 @@
 package dev.kpherox.vihp.client.jade
 
-import net.minecraft.world.entity.npc.Villager
+import net.minecraft.world.entity.PathfinderMob
 import org.slf4j.LoggerFactory
 import snownee.jade.api.IWailaClientRegistration
 import snownee.jade.api.IWailaPlugin
@@ -12,6 +12,6 @@ object VillagerInventoryPlugin : IWailaPlugin {
 
   override fun registerClient(registration: IWailaClientRegistration) {
     logger.info("[Villager Inventory Plugin for Jade] Client side startup")
-    registration.registerEntityComponent(VillagerInventoryProvider, Villager::class.java)
+    registration.registerEntityComponent(VillagerInventoryProvider, PathfinderMob::class.java)
   }
 }
