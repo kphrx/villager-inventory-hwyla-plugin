@@ -5,7 +5,15 @@
 
 Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
 
-base mod|image
--|-
-Jade|<img alt="Tooltip with Jade" src="https://cdn.modrinth.com/data/ESa9RivE/images/de19a586367f20cef5f7b1e663204b16d44dbeac.png" width=256>
-WTHIT|<img alt="Tooltip with WTHIT" src="https://cdn.modrinth.com/data/ESa9RivE/images/ca973ff8662187889cc5b2343492e87478ce456b.png" width=256>
+| Mob      | Jade                                         | WTHIT                                          |
+|---------:|----------------------------------------------|------------------------------------------------|
+| Villager | ![Villager's tooltip in Jade][Villager-Jade] | ![Villager's tooltip in WTHIT][Villager-WTHIT] |
+|    Allay | ![Allay's tooltip in Jade][Allay-Jade]       | ![Allay's tooltip in WTHIT][Allay-WTHIT]       |
+|   Piglin | ![Piglin's tooltip in Jade][Piglin-Jade]     | ![Piglin's tooltip in WTHIT][Piglin-WTHIT]     |
+
+[Villager-Jade]: https://cdn.modrinth.com/data/ESa9RivE/images/ea127410a4c913adb12de3104699331b622ae604.png
+[Allay-Jade]: https://cdn.modrinth.com/data/ESa9RivE/images/7a91a6720b21355b44afe5ad56e0800403755981.png
+[Piglin-Jade]: https://cdn.modrinth.com/data/ESa9RivE/images/1dff1fc6d77026ea48501fdacc7adfcb5ac4ee7a.png
+[Villager-WTHIT]: https://cdn.modrinth.com/data/ESa9RivE/images/70f7e4e789e620cbdbe0359bb6d95bc0ce207b3e.png
+[Allay-WTHIT]: https://cdn.modrinth.com/data/ESa9RivE/images/592b29986716a35b3d124c6ab99461af7cc6b629.png
+[Piglin-WTHIT]: https://cdn.modrinth.com/data/ESa9RivE/images/769826344a028eb76f56cb381a9e277cdf587c2f.png
