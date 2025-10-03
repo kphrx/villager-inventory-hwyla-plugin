@@ -30,6 +30,7 @@ jobs:
         uses: actions/github-script@v7
         id: version-type
         with:
+          result-encoding: string
           script: |
             const version = process.env.GITHUB_REF_NAME;
             const isPrerelease = version.startsWith('0.') || version.split('-').length > 1;
