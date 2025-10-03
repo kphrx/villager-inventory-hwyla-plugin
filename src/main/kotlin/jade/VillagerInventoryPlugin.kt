@@ -1,7 +1,7 @@
 package dev.kpherox.vihp.jade
 
 import net.minecraft.resources.ResourceLocation
-import net.minecraft.world.entity.npc.Villager
+import net.minecraft.world.entity.PathfinderMob
 import org.slf4j.LoggerFactory
 import snownee.jade.api.IWailaCommonRegistration
 import snownee.jade.api.IWailaPlugin
@@ -17,6 +17,6 @@ object VillagerInventoryPlugin : IWailaPlugin {
 
   override fun register(registration: IWailaCommonRegistration) {
     logger.info("[Villager Inventory Plugin for Jade] Server side startup")
-    registration.registerEntityDataProvider(InventoryDataProvider, Villager::class.java)
+    registration.registerEntityDataProvider(InventoryDataProvider, PathfinderMob::class.java)
   }
 }
