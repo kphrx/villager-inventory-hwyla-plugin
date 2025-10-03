@@ -24,6 +24,7 @@ jobs:
         with:
           java-version: '21'
           distribution: 'microsoft'
+          cache: 'gradle'
       - name: make gradle wrapper executable
         run: chmod +x ./gradlew
       - name: version type
