@@ -11,6 +11,6 @@ class VillagerInventoryPlugin : IWailaCommonPlugin {
   override fun register(registrar: ICommonRegistrar) {
     logger.info("[Villager Inventory Plugin for WTHIT] Server side startup")
     registrar.dataType(InventoryData.TYPE, InventoryData.CODEC)
-    registrar.entityData(VillagerInventoryProvider, Villager::class.java)
+    registrar.entityData(InventoryDataProvider, Villager::class.java)
   }
 }

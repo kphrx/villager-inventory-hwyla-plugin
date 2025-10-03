@@ -17,6 +17,6 @@ object VillagerInventoryPlugin : IWailaPlugin {
 
   override fun register(registration: IWailaCommonRegistration) {
     logger.info("[Villager Inventory Plugin for Jade] Server side startup")
-    registration.registerEntityDataProvider(VillagerInventoryProvider, Villager::class.java)
+    registration.registerEntityDataProvider(InventoryDataProvider, Villager::class.java)
   }
 }
