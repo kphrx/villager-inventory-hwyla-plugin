@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -71,7 +70,7 @@ tasks.withType<ProcessResources> {
 
 tasks.withType<JavaCompile>().configureEach { options.release = 21 }
 
-tasks.withType<KotlinJvmCompile>().all { compilerOptions { jvmTarget.set(JvmTarget.JVM_21) } }
+kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_21 } }
 
 java {
   // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
