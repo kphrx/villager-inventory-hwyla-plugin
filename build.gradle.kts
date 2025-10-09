@@ -128,6 +128,7 @@ modrinth {
     changelog.set(modrinth_changelog)
   }
   uploadFile.set(tasks.remapJar)
+  additionalFiles.add(tasks.remapSourcesJar)
   gameVersions.add(libs.versions.minecraft.get())
   gameVersions.addAll(
       minecraft_forword_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
@@ -140,3 +141,5 @@ modrinth {
 
   syncBodyFrom.set(rootProject.file("README.md").readText())
 }
+
+tasks.named("modrinth") { dependsOn(tasks.modrinthSyncBody) }
