@@ -13,3 +13,7 @@ updates:
         patterns:
           - "fabric-loom"
           - "net.fabricmc:fabric-loader"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
