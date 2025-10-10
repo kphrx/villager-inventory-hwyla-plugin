@@ -63,7 +63,7 @@ tasks.withType<ProcessResources> {
   inputs.property("minecraft", libs.versions.minecraft)
   inputs.property("fabricloader", libs.versions.fabric.loader)
   inputs.property("jade", libs.versions.jade)
-  inputs.property("wthit", libs.versions.wthit)
+  inputs.property("wthit", libs.versions.wthit.get().removePrefix("fabric-"))
 
   filesMatching("fabric.mod.json") { expand(inputs.properties) }
 }
@@ -115,11 +115,11 @@ publishing {
   }
 }
 
-val mod_version_type: String by project
-val modrinth_changelog: String? by project
-val minecraft_forword_compatible_versions: String by project
-
 modrinth {
+  val mod_version_type: String by project
+  val modrinth_changelog: String? by project
+  val minecraft_forword_compatible_versions: String by project
+
   token.set(System.getenv("MODRINTH_TOKEN"))
   projectId.set(project.base.archivesName)
   versionType.set(mod_version_type)
