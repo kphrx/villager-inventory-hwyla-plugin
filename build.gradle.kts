@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinJvmCompile
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -71,7 +70,7 @@ tasks.withType<ProcessResources> {
 
 tasks.withType<JavaCompile>().configureEach { options.release = 21 }
 
-tasks.withType<KotlinJvmCompile>().all { compilerOptions { jvmTarget.set(JvmTarget.JVM_21) } }
+kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_21 } }
 
 java {
   // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
@@ -119,7 +118,6 @@ publishing {
 val mod_version_type: String by project
 val modrinth_changelog: String? by project
 val minecraft_forword_compatible_versions: String by project
-val release: String? by project
 
 modrinth {
   token.set(System.getenv("MODRINTH_TOKEN"))
@@ -129,6 +127,7 @@ modrinth {
     changelog.set(modrinth_changelog)
   }
   uploadFile.set(tasks.remapJar)
+  additionalFiles.add(tasks.remapSourcesJar)
   gameVersions.add(libs.versions.minecraft.get())
   gameVersions.addAll(
       minecraft_forword_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
@@ -137,7 +136,9 @@ modrinth {
     optional.project("jade")
     optional.project("wthit")
   }
-  debugMode.set(release == null)
+  debugMode.set(!providers.gradleProperty("release").isPresent)
 
   syncBodyFrom.set(rootProject.file("README.md").readText())
 }
+
+tasks.named("modrinth") { dependsOn(tasks.modrinthSyncBody) }
