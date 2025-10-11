@@ -8,8 +8,9 @@
 		"kPherox"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://kpherox.dev/",
+		"issues": "https://github.com/kphrx/villager-inventory-hwyla-plugin/issues",
+		"sources": "https://github.com/kphrx/villager-inventory-hwyla-plugin"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/villager-inventory-hwyla-plugin/icon.png",
