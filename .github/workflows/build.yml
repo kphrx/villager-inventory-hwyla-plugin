@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: setup jdk
         uses: kphrx/setup-java@72b0832d0a6444093c42087686974c4aaca46371
         with:
