@@ -1,8 +1,8 @@
 # Villager Inventory Plugin
-
+<!-- modrinth_exclude.start -->
 ![Modrinth Version](https://img.shields.io/modrinth/v/ESa9RivE?style=flat-square)
 ![Modrinth Game Versions](https://img.shields.io/modrinth/game-versions/ESa9RivE?style=flat-square)
-
+<!-- modrinth_exclude.end -->
 Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
 
 | Mob      | Jade                                         | WTHIT                                          |
