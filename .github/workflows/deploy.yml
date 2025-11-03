@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-24.04
     environment:
       name: Modrinth
-      url: https://modrinth.com/mod/villager-inventory-hwyla-plugin
+      url: https://modrinth.com/mod/villager-inventory-hwyla-plugin/version/${{ env.GITHUB_REF_NAME }}
     steps:
       - name: checkout repository
         uses: actions/checkout@v5
