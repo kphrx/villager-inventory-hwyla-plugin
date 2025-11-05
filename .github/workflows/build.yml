@@ -17,7 +17,7 @@ jobs:
       - name: checkout repository
         uses: actions/checkout@v5
       - name: setup jdk
-        uses: kphrx/setup-java@72b0832d0a6444093c42087686974c4aaca46371
+        uses: actions/setup-java@de5a937a1dc73fbc1a67d7d1aa4bebc1082f3190 # v5.0.0+5
         with:
           java-version: '25'
           distribution: 'microsoft'
