@@ -36,8 +36,10 @@ repositories {
   }
 }
 
+sourceSets { create("client") }
+
 loom {
-  splitEnvironmentSourceSets()
+  // splitEnvironmentSourceSets()
 
   mods {
     create("villager-inventory-hwyla-plugin") {
@@ -52,10 +54,10 @@ fabricApi { configureDataGeneration { client = true } }
 dependencies {
   // To change the versions see the gradle.properties file
   minecraft(libs.minecraft)
-  mappings(loom.officialMojangMappings())
-  modImplementation(libs.bundles.fabric)
-  modImplementation(libs.jade)
-  modImplementation(libs.wthit)
+  // mappings(loom.officialMojangMappings())
+  implementation(libs.bundles.fabric)
+  implementation(libs.jade)
+  implementation(libs.wthit)
 }
 
 tasks.withType<ProcessResources> {
@@ -118,7 +120,6 @@ publishing {
 modrinth {
   val mod_version_type: String by project
   val modrinth_changelog: String? by project
-  val minecraft_forword_compatible_versions: String by project
 
   token.set(System.getenv("MODRINTH_TOKEN"))
   projectId.set(project.base.archivesName)
@@ -126,11 +127,14 @@ modrinth {
   if (modrinth_changelog != "") {
     changelog.set(modrinth_changelog)
   }
-  uploadFile.set(tasks.remapJar)
-  additionalFiles.add(tasks.remapSourcesJar)
+  uploadFile.set(tasks.jar)
+  // additionalFiles.add(tasks.sourcesJar)
   gameVersions.add(libs.versions.minecraft.get())
-  gameVersions.addAll(
-      minecraft_forword_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
+  if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
+    val minecraft_forward_compatible_versions: String by project
+    gameVersions.addAll(
+        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
+  }
   dependencies {
     required.project("fabric-language-kotlin")
     optional.project("jade")

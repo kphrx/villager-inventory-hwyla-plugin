@@ -1,10 +1,10 @@
 [versions]
 kotlin = "2.2.20"
 ktfmt = "0.24.0"
-fabric-loom = "1.10-SNAPSHOT"
+fabric-loom = "1.13-SNAPSHOT"
 minotaur = "2.+"
-minecraft = "1.21.6"
-fabric-loader = "0.16.14"
+minecraft = "25w46a_unobfuscated"
+fabric-loader = "0.18.0"
 fabric-kotlin = "1.13.6+kotlin.2.2.20"
 jade = "19.0.1+fabric"
 wthit = "fabric-16.0.0"
