@@ -52,10 +52,10 @@ fabricApi { configureDataGeneration { client = true } }
 dependencies {
   // To change the versions see the gradle.properties file
   minecraft(libs.minecraft)
-  mappings(loom.officialMojangMappings())
-  modImplementation(libs.bundles.fabric)
-  modImplementation(libs.jade)
-  modImplementation(libs.wthit)
+  // mappings(loom.officialMojangMappings())
+  implementation(libs.bundles.fabric)
+  implementation(libs.jade)
+  implementation(libs.wthit)
 }
 
 tasks.withType<ProcessResources> {
@@ -125,8 +125,8 @@ modrinth {
   if (modrinth_changelog != "") {
     changelog.set(modrinth_changelog)
   }
-  uploadFile.set(tasks.remapJar)
-  additionalFiles.add(tasks.remapSourcesJar)
+  uploadFile.set(tasks.jar)
+  // additionalFiles.add(tasks.sourcesJar)
   gameVersions.add(libs.versions.minecraft.get())
   if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
     val minecraft_forward_compatible_versions: String by project
