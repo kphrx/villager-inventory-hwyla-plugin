@@ -118,7 +118,6 @@ publishing {
 modrinth {
   val mod_version_type: String by project
   val modrinth_changelog: String? by project
-  val minecraft_forword_compatible_versions: String by project
 
   token.set(System.getenv("MODRINTH_TOKEN"))
   projectId.set(project.base.archivesName)
@@ -129,8 +128,11 @@ modrinth {
   uploadFile.set(tasks.remapJar)
   additionalFiles.add(tasks.remapSourcesJar)
   gameVersions.add(libs.versions.minecraft.get())
-  gameVersions.addAll(
-      minecraft_forword_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
+  if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
+    val minecraft_forward_compatible_versions: String by project
+    gameVersions.addAll(
+        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
+  }
   dependencies {
     required.project("fabric-language-kotlin")
     optional.project("jade")
