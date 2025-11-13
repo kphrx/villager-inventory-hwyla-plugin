@@ -30,7 +30,7 @@
 	"depends": {
 		"fabricloader": ">=${fabricloader}",
 		"minecraft": "~${minecraft}",
-		"java": ">=21",
+		"java": ">=${java}",
 		"fabric-language-kotlin": "*"
 	},
 	"recommends": {
