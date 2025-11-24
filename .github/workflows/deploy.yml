@@ -16,7 +16,7 @@ jobs:
       url: https://modrinth.com/mod/villager-inventory-hwyla-plugin/version/${{ env.GITHUB_REF_NAME }}
     steps:
       - name: checkout repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           ref: ${{ github.ref }}
       - name: setup jdk
