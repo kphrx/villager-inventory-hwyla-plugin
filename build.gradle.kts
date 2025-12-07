@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -69,6 +70,8 @@ tasks.withType<ProcessResources> {
 }
 
 tasks.withType<JavaCompile>().configureEach { options.release = 25 }
+
+tasks.withType<KotlinCompile>().configureEach { exclude("wthit/**") }
 
 kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_25 } }
 
