@@ -6,8 +6,8 @@ minotaur = "2.+"
 minecraft = "25w46a_unobfuscated"
 fabric-loader = "0.18.0"
 fabric-kotlin = "1.13.7+kotlin.2.2.21"
-jade = "19.0.1+fabric"
-wthit = "fabric-16.0.0"
+jade = "21.0.0+fabric"
+wthit = "fabric-18.0.0"
 
 [libraries]
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
