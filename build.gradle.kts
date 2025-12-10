@@ -36,10 +36,8 @@ repositories {
   }
 }
 
-sourceSets { create("client") }
-
 loom {
-  // splitEnvironmentSourceSets()
+  splitEnvironmentSourceSets()
 
   mods {
     create("villager-inventory-hwyla-plugin") {
