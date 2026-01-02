@@ -18,12 +18,16 @@ object VillagerInventoryProvider : IEntityComponentProvider {
       return
     }
 
-    accessor.decodeFromNbt(ItemStack.OPTIONAL_LIST_STREAM_CODEC, data.get(VillagerInventoryServerPlugin.INVENTORY_KEY)).ifPresent {
-      val elements = arrayListOf<Element>()
-      for (itemStack in it) {
-        elements.add(JadeUI.item(itemStack))
-      }
-      tooltip.add(elements)
-    }
+    accessor
+        .decodeFromNbt(
+            ItemStack.OPTIONAL_LIST_STREAM_CODEC,
+            data.get(VillagerInventoryServerPlugin.INVENTORY_KEY))
+        .ifPresent {
+          val elements = arrayListOf<Element>()
+          for (itemStack in it) {
+            elements.add(JadeUI.item(itemStack))
+          }
+          tooltip.add(elements)
+        }
   }
 }
