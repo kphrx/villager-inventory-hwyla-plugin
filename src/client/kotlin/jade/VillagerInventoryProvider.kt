@@ -1,7 +1,6 @@
 package dev.kpherox.vihp.client.jade
 
 import dev.kpherox.vihp.jade.VillagerInventoryPlugin as VillagerInventoryServerPlugin
-import kotlin.jvm.optionals.getOrDefault
 import net.minecraft.world.item.ItemStack
 import snownee.jade.api.EntityAccessor
 import snownee.jade.api.IEntityComponentProvider
@@ -19,15 +18,12 @@ object VillagerInventoryProvider : IEntityComponentProvider {
       return
     }
 
-    val inventory =
-        accessor.decodeFromNbt(
-            ItemStack.OPTIONAL_LIST_STREAM_CODEC,
-            data.get(VillagerInventoryServerPlugin.INVENTORY_KEY))
-
-    val elements = arrayListOf<Element>()
-    for (itemStack in inventory.getOrDefault(emptyList())) {
-      elements.add(JadeUI.item(itemStack))
+    accessor.decodeFromNbt(ItemStack.OPTIONAL_LIST_STREAM_CODEC, data.get(VillagerInventoryServerPlugin.INVENTORY_KEY)).ifPresent {
+      val elements = arrayListOf<Element>()
+      for (itemStack in it) {
+        elements.add(JadeUI.item(itemStack))
+      }
+      tooltip.add(elements)
     }
-    tooltip.add(elements)
   }
 }
