@@ -51,7 +51,7 @@ jobs:
           VERSION_TYPE: ${{ steps.version-type.outputs.result }}
         run: ./gradlew modrinth -Prelease -Pmod_version="${GITHUB_REF_NAME}" -Pmod_version_type="${VERSION_TYPE}" -Pmodrinth_changelog="$(git tag -l --format='%(contents:subject)%0a%0a%(contents:body)' "${GITHUB_REF_NAME}")"
       - name: capture build artifacts
-        uses: actions/upload-artifact@v5
+        uses: actions/upload-artifact@v6
         with:
           name: Artifacts
           path: build/libs/
