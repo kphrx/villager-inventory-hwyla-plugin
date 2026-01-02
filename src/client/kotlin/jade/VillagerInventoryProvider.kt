@@ -13,21 +13,14 @@ object VillagerInventoryProvider : IEntityComponentProvider {
   override fun getUid() = VillagerInventoryServerPlugin.INVENTORY
 
   override fun appendTooltip(tooltip: ITooltip, accessor: EntityAccessor, config: IPluginConfig) {
-    val data = accessor.getServerData()
-    if (!data.contains(VillagerInventoryServerPlugin.INVENTORY_KEY)) {
-      return
-    }
-
-    accessor
-        .decodeFromNbt(
-            ItemStack.OPTIONAL_LIST_STREAM_CODEC,
-            data.get(VillagerInventoryServerPlugin.INVENTORY_KEY))
-        .ifPresent {
-          val elements = arrayListOf<Element>()
-          for (itemStack in it) {
-            elements.add(JadeUI.item(itemStack))
-          }
-          tooltip.add(elements)
+    accessor.getServerData().get(VillagerInventoryServerPlugin.INVENTORY_KEY)?.let { tag ->
+      accessor.decodeFromNbt(ItemStack.OPTIONAL_LIST_STREAM_CODEC, tag).ifPresent { inventory ->
+        val elements = arrayListOf<Element>()
+        for (itemStack in inventory) {
+          elements.add(JadeUI.item(itemStack))
         }
+        tooltip.add(elements)
+      }
+    }
   }
 }

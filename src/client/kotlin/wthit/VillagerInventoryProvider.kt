@@ -9,8 +9,7 @@ import mcp.mobius.waila.api.component.ItemListComponent
 
 object VillagerInventoryProvider : IEntityComponentProvider {
   override fun appendBody(tooltip: ITooltip, accessor: IEntityAccessor, config: IPluginConfig) {
-    val itemData = accessor.getData().get(InventoryData.TYPE)
-    if (itemData != null) {
+    accessor.getData().get(InventoryData.TYPE)?.let { itemData ->
       val inventory = itemData.items
       tooltip.addLine(ItemListComponent(inventory))
     }
