@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -52,15 +53,15 @@ fabricApi { configureDataGeneration { client = true } }
 dependencies {
   // To change the versions see the gradle.properties file
   minecraft(libs.minecraft)
-  mappings(loom.officialMojangMappings())
-  modImplementation(libs.bundles.fabric)
-  modImplementation(libs.jade)
-  modImplementation(libs.wthit)
+  implementation(libs.bundles.fabric)
+  implementation(libs.jade)
+  implementation(libs.wthit)
 }
 
 tasks.withType<ProcessResources> {
   inputs.property("version", version)
-  inputs.property("minecraft", libs.versions.minecraft)
+  inputs.property("java", 25)
+  inputs.property("minecraft", libs.versions.minecraft.get().replace("snapshot-", "alpha."))
   inputs.property("fabricloader", libs.versions.fabric.loader)
   inputs.property("jade", libs.versions.jade)
   inputs.property("wthit", libs.versions.wthit.get().removePrefix("fabric-"))
@@ -68,18 +69,17 @@ tasks.withType<ProcessResources> {
   filesMatching("fabric.mod.json") { expand(inputs.properties) }
 }
 
-tasks.withType<JavaCompile>().configureEach { options.release = 21 }
+tasks.withType<JavaCompile>().configureEach { options.release = 25 }
 
-kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_21 } }
+tasks.withType<KotlinCompile>().configureEach { exclude("wthit/**") }
+
+kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_25 } }
 
 java {
-  // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
-  // if it is present.
-  // If you remove this line, sources will not be generated.
   withSourcesJar()
 
-  sourceCompatibility = JavaVersion.VERSION_21
-  targetCompatibility = JavaVersion.VERSION_21
+  sourceCompatibility = JavaVersion.VERSION_25
+  targetCompatibility = JavaVersion.VERSION_25
 }
 
 tasks.withType<Jar> {
@@ -125,8 +125,8 @@ modrinth {
   if (modrinth_changelog != "") {
     changelog.set(modrinth_changelog)
   }
-  uploadFile.set(tasks.remapJar)
-  additionalFiles.add(tasks.remapSourcesJar)
+  uploadFile.set(tasks.jar)
+  additionalFiles.add(tasks.named("sourcesJar"))
   gameVersions.add(libs.versions.minecraft.get())
   if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
     val minecraft_forward_compatible_versions: String by project

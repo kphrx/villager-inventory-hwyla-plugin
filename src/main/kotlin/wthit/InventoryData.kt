@@ -2,12 +2,12 @@ package dev.kpherox.vihp.wthit
 
 import mcp.mobius.waila.api.IData
 import net.minecraft.network.codec.StreamCodec
-import net.minecraft.resources.ResourceLocation
+import net.minecraft.resources.Identifier
 import net.minecraft.world.item.ItemStack
 
 class InventoryData(val items: List<ItemStack>) : IData {
   companion object {
-    private val ID = ResourceLocation.fromNamespaceAndPath("vihp", "villager_inventory")
+    private val ID = Identifier.fromNamespaceAndPath("vihp", "villager_inventory")
 
     val TYPE = IData.createType<InventoryData>(ID)
 
