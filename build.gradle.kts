@@ -51,7 +51,6 @@ fabricApi { configureDataGeneration { client = true } }
 dependencies {
   minecraft(libs.minecraft)
   mappings(loom.officialMojangMappings())
-  modImplementation(libs.bundles.fabric)
   modImplementation(libs.jade)
   modCompileOnly(libs.wthit.api)
   modRuntimeOnly(libs.wthit.runtime)
@@ -61,7 +60,6 @@ dependencies {
 tasks.withType<ProcessResources> {
   inputs.property("version", version)
   inputs.property("minecraft", libs.versions.minecraft)
-  inputs.property("fabricloader", libs.versions.fabric.loader)
   inputs.property("jade", libs.versions.jade)
   inputs.property("wthit", libs.versions.wthit.get().removePrefix("mojmap-"))
 
