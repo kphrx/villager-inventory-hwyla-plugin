@@ -22,3 +22,17 @@ type="required"
 versionRange="[${minecraft},)"
 ordering="NONE"
 side="BOTH"
+
+[[dependencies.villager_inventory_hwyla_plugin]]
+modId="jade"
+type="optional"
+versionRange="[${jadeneoforge},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.villager_inventory_hwyla_plugin]]
+modId="wthit"
+type="optional"
+versionRange="[${wthit},)"
+ordering="NONE"
+side="BOTH"

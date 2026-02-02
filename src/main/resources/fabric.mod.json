@@ -33,7 +33,7 @@
 		"fabric-language-kotlin": "*"
 	},
 	"recommends": {
-		"jade": ">=${jade}",
+		"jade": ">=${jadefabric}",
 		"wthit": ">=${wthit}"
 	}
 }

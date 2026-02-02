@@ -60,7 +60,8 @@ dependencies {
 tasks.withType<ProcessResources> {
   inputs.property("version", version)
   inputs.property("minecraft", libs.versions.minecraft)
-  inputs.property("jade", libs.versions.jade)
+  inputs.property("jadefabric", libs.versions.jade.fabric)
+  inputs.property("jadeneoforge", libs.versions.jade.neoforge)
   inputs.property("wthit", libs.versions.wthit.get().removePrefix("mojmap-"))
 
   filesMatching("fabric.mod.json") { expand(inputs.properties) }
