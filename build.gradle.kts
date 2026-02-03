@@ -1,3 +1,4 @@
+import net.fabricmc.loom.task.RemapJarTask
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -19,20 +20,18 @@ group = maven_group
 base { archivesName.set(archives_base_name) }
 
 repositories {
-  // Add repositories to retrieve artifacts from in here.
-  // You should only use this when depending on other mods because
-  // Loom adds the essential maven repositories to download Minecraft and libraries from
-  // automatically.
-  // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-  // for more information about repositories.
-  exclusiveContent {
-    forRepository {
-      maven {
-        name = "Modrinth"
-        url = uri("https://api.modrinth.com/maven")
-      }
+  maven {
+    name = "Modrinth"
+    url = uri("https://api.modrinth.com/maven")
+    content { includeGroup("maven.modrinth") }
+  }
+  maven {
+    name = "Badasintended"
+    url = uri("https://maven4.bai.lol")
+    content {
+      includeGroup("lol.bai")
+      includeGroup("mcp.mobius.waila")
     }
-    filter { includeGroup("maven.modrinth") }
   }
 }
 
@@ -50,22 +49,24 @@ loom {
 fabricApi { configureDataGeneration { client = true } }
 
 dependencies {
-  // To change the versions see the gradle.properties file
   minecraft(libs.minecraft)
   mappings(loom.officialMojangMappings())
-  modImplementation(libs.bundles.fabric)
   modImplementation(libs.jade)
-  modImplementation(libs.wthit)
+  modCompileOnly(libs.wthit.api)
+  modRuntimeOnly(libs.wthit.runtime)
+  modRuntimeOnly(libs.badpackets)
 }
 
 tasks.withType<ProcessResources> {
   inputs.property("version", version)
   inputs.property("minecraft", libs.versions.minecraft)
-  inputs.property("fabricloader", libs.versions.fabric.loader)
-  inputs.property("jade", libs.versions.jade)
-  inputs.property("wthit", libs.versions.wthit.get().removePrefix("fabric-"))
+  inputs.property("jadefabric", libs.versions.jade.fabric)
+  inputs.property("jadeneoforge", libs.versions.jade.neoforge)
+  inputs.property("wthit", libs.versions.wthit.get().removePrefix("mojmap-"))
 
   filesMatching("fabric.mod.json") { expand(inputs.properties) }
+
+  filesMatching("META-INF/neoforge.mods.toml") { expand(inputs.properties) }
 }
 
 tasks.withType<JavaCompile>().configureEach { options.release = 21 }
@@ -86,6 +87,28 @@ tasks.withType<Jar> {
   inputs.property("archivesName", base.archivesName)
 
   from("LICENSE") { rename { "${it}_${inputs.properties["archivesName"]}" } }
+}
+
+val mojmapJar =
+    tasks.register<RemapJarTask>("mojmapJar") {
+      group = "build"
+      description = "official mappings."
+
+      sourceNamespace.set("intermediary")
+      // targetNamespace.set("official")
+      inputFile.set(tasks.jar.get().archiveFile)
+    }
+
+tasks.assemble { dependsOn(mojmapJar) }
+
+mojmapJar {
+  archiveClassifier.set("mojmap")
+  exclude("fabric.mod.json")
+}
+
+tasks.remapJar {
+  archiveClassifier.set("intermediary")
+  exclude("META-INF/neoforge.mods.toml")
 }
 
 // configure the maven publication

@@ -7,7 +7,7 @@ import snownee.jade.api.IWailaPlugin
 import snownee.jade.api.WailaPlugin
 
 @WailaPlugin
-object VillagerInventoryPlugin : IWailaPlugin {
+class VillagerInventoryPlugin : IWailaPlugin {
   private val logger = LoggerFactory.getLogger("villager-inventory-hywla-plugin")
 
   override fun registerClient(registration: IWailaClientRegistration) {

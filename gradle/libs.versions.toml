@@ -4,23 +4,20 @@ ktfmt = "0.25.0"
 fabric-loom = "1.14-SNAPSHOT"
 minotaur = "2.+"
 minecraft = "1.21.1"
-fabric-loader = "0.16.14"
-fabric-kotlin = "1.13.8+kotlin.2.3.0"
-jade = "15.7.0+fabric"
-wthit = "fabric-12.4.0"
+jade-fabric = "15.7.0+fabric"
+jade-neoforge = "15.7.0+neoforge"
+wthit = "mojmap-12.4.0"
+badpackets = "mojmap-0.8.1"
 
 [libraries]
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
-fabric-loader = { group = "net.fabricmc", name = "fabric-loader", version.ref = "fabric-loader" }
-fabric-language-kotlin = { group = "maven.modrinth", name = "fabric-language-kotlin", version.ref = "fabric-kotlin" }
-jade = { group = "maven.modrinth", name = "jade", version.ref = "jade" }
-wthit = { group = "maven.modrinth", name = "wthit", version.ref = "wthit" }
+jade = { group = "maven.modrinth", name = "jade", version.ref = "jade-fabric" }
+wthit-api = { group = "mcp.mobius.waila", name = "wthit-api", version.ref = "wthit" }
+wthit-runtime = { group = "mcp.mobius.waila", name = "wthit", version.ref = "wthit" }
+badpackets = { group = "lol.bai", name = "badpackets", version.ref = "badpackets" }
 
 [plugins]
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktfmt = { id = "com.ncorti.ktfmt.gradle", version.ref = "ktfmt" }
 fabric-loom = { id = "net.fabricmc.fabric-loom-remap", version.ref = "fabric-loom" }
 minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
-
-[bundles]
-fabric = ["fabric-loader", "fabric-language-kotlin"]
