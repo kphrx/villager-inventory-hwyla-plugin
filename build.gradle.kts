@@ -1,5 +1,4 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -20,20 +19,18 @@ group = maven_group
 base { archivesName.set(archives_base_name) }
 
 repositories {
-  // Add repositories to retrieve artifacts from in here.
-  // You should only use this when depending on other mods because
-  // Loom adds the essential maven repositories to download Minecraft and libraries from
-  // automatically.
-  // See https://docs.gradle.org/current/userguide/declaring_repositories.html
-  // for more information about repositories.
-  exclusiveContent {
-    forRepository {
-      maven {
-        name = "Modrinth"
-        url = uri("https://api.modrinth.com/maven")
-      }
+  maven {
+    name = "Modrinth"
+    url = uri("https://api.modrinth.com/maven")
+    content { includeGroup("maven.modrinth") }
+  }
+  maven {
+    name = "Badasintended"
+    url = uri("https://maven4.bai.lol")
+    content {
+      includeGroup("lol.bai")
+      includeGroup("mcp.mobius.waila")
     }
-    filter { includeGroup("maven.modrinth") }
   }
 }
 
@@ -51,27 +48,25 @@ loom {
 fabricApi { configureDataGeneration { client = true } }
 
 dependencies {
-  // To change the versions see the gradle.properties file
   minecraft(libs.minecraft)
   implementation(libs.bundles.fabric)
   implementation(libs.jade)
-  implementation(libs.wthit)
+  compileOnly(libs.wthit.api)
+  runtimeOnly(libs.wthit.runtime)
+  runtimeOnly(libs.badpackets)
 }
 
 tasks.withType<ProcessResources> {
   inputs.property("version", version)
   inputs.property("java", 25)
   inputs.property("minecraft", libs.versions.minecraft.get().replace("snapshot-", "alpha."))
-  inputs.property("fabricloader", libs.versions.fabric.loader)
   inputs.property("jade", libs.versions.jade)
-  inputs.property("wthit", libs.versions.wthit.get().removePrefix("fabric-"))
+  inputs.property("wthit", libs.versions.wthit.get().removePrefix("mojmap-"))
 
   filesMatching("fabric.mod.json") { expand(inputs.properties) }
 }
 
 tasks.withType<JavaCompile>().configureEach { options.release = 25 }
-
-tasks.withType<KotlinCompile>().configureEach { exclude("wthit/**") }
 
 kotlin { compilerOptions { jvmTarget = JvmTarget.JVM_25 } }
 
