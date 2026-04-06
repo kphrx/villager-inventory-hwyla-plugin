@@ -28,13 +28,12 @@
 		]
 	},
 	"depends": {
-		"fabricloader": ">=${fabricloader}",
 		"minecraft": "~${minecraft}",
 		"java": ">=${java}",
 		"fabric-language-kotlin": "*"
 	},
 	"recommends": {
-		"jade": ">=${jade}",
+		"jade": ">=${jadefabric}",
 		"wthit": ">=${wthit}"
 	}
 }
