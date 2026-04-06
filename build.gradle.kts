@@ -129,7 +129,8 @@ modrinth {
   if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
     val minecraft_forward_compatible_versions: String by project
     gameVersions.addAll(
-        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" })
+        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" }
+    )
   }
   dependencies {
     required.project("fabric-language-kotlin")

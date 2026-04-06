@@ -12,7 +12,7 @@ object InventoryDataProvider : IDataProvider<PathfinderMob> {
   override fun appendData(
       data: IDataWriter,
       accessor: IServerAccessor<PathfinderMob>,
-      config: IPluginConfig
+      config: IPluginConfig,
   ) {
     val entity = accessor.getTarget()
     if (entity is InventoryCarrier) {
