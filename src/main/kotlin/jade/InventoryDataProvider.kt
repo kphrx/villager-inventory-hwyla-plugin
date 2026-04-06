@@ -16,7 +16,8 @@ object InventoryDataProvider : IServerDataProvider<EntityAccessor> {
       val inventory = InventoryAccessor.getInventory(entity)
       data.put(
           VillagerInventoryPlugin.INVENTORY_KEY,
-          accessor.encodeAsNbt(ItemStack.OPTIONAL_LIST_STREAM_CODEC, inventory))
+          accessor.encodeAsNbt(ItemStack.OPTIONAL_LIST_STREAM_CODEC, inventory),
+      )
     }
   }
 }

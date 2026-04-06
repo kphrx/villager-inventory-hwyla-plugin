@@ -13,7 +13,10 @@ class InventoryData(val items: List<ItemStack>) : IData {
 
     val CODEC =
         StreamCodec.composite(
-            ItemStack.OPTIONAL_LIST_STREAM_CODEC, InventoryData::items, ::InventoryData)
+            ItemStack.OPTIONAL_LIST_STREAM_CODEC,
+            InventoryData::items,
+            ::InventoryData,
+        )
   }
 
   override fun type() = TYPE

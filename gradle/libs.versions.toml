@@ -1,6 +1,6 @@
 [versions]
 kotlin = "2.3.0"
-ktfmt = "0.25.0"
+ktfmt = "0.26.0"
 fabric-loom = "1.15-SNAPSHOT"
 minotaur = "2.+"
 minecraft = "26.1"
