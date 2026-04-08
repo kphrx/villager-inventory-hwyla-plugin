@@ -1,5 +1,5 @@
-modLoader="kotlinforforge"
-loaderVersion="[5.7,)"
+modLoader="javafml"
+loaderVersion="[1,)"
 
 license="CC0-1.0"
 
@@ -20,6 +20,20 @@ Show villager's inventory slots to tooltip.
 modId="minecraft"
 type="required"
 versionRange="[${minecraft},)"
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.villager_inventory_hwyla_plugin]]
+modId="klf"
+type="optional"
+versionRange=""
+ordering="NONE"
+side="BOTH"
+
+[[dependencies.villager_inventory_hwyla_plugin]]
+modId="kotlinforforge"
+type="optional"
+versionRange=""
 ordering="NONE"
 side="BOTH"
 
