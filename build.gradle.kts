@@ -1,5 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import com.modrinth.minotaur.TaskModrinthUpload
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
   alias(libs.plugins.fabric.loom)
@@ -144,6 +144,7 @@ modrinth {
 }
 
 val modrinthTask = tasks.named<TaskModrinthUpload>("modrinth")
+
 modrinthTask {
   dependsOn(tasks.modrinthSyncBody)
 
@@ -152,7 +153,9 @@ modrinthTask {
       val result = modrinthTask.get().newVersion
       if (result != null) {
         val outputFile = file(System.getenv("GITHUB_OUTPUT")).bufferedWriter()
-        outputFile.appendLine("version_url=https://modrinth.com/mod/${result.projectId}/version/${result.id}")
+        outputFile.appendLine(
+            "version_url=https://modrinth.com/mod/${result.projectId}/version/${result.id}"
+        )
         outputFile.close()
       }
     }
