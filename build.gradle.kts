@@ -1,3 +1,4 @@
+import com.modrinth.minotaur.TaskModrinthUpload
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -142,4 +143,21 @@ modrinth {
   syncBodyFrom.set(rootProject.file("README.md").readText())
 }
 
-tasks.named("modrinth") { dependsOn(tasks.modrinthSyncBody) }
+val modrinthTask = tasks.named<TaskModrinthUpload>("modrinth")
+
+modrinthTask {
+  dependsOn(tasks.modrinthSyncBody)
+
+  doLast {
+    if (System.getenv("GITHUB_ACTIONS") == "true") {
+      val result = modrinthTask.get().newVersion
+      if (result != null) {
+        val outputFile = file(System.getenv("GITHUB_OUTPUT")).bufferedWriter()
+        outputFile.appendLine(
+            "version_url=https://modrinth.com/mod/${result.projectId}/version/${result.id}"
+        )
+        outputFile.close()
+      }
+    }
+  }
+}
