@@ -133,8 +133,11 @@ modrinth {
         minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" }
     )
   }
+  loaders.addAll("fabric", "neoforge")
   dependencies {
-    required.project("fabric-language-kotlin")
+    optional.project("fabric-language-kotlin")
+    optional.project("kotlin-lang-forge")
+    optional.project("kotlin-for-forge")
     optional.project("jade")
     optional.project("wthit")
   }
