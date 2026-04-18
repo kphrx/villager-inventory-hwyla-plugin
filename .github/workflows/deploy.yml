@@ -25,7 +25,7 @@ jobs:
           java-version: '25'
           distribution: 'microsoft'
       - name: setup gradle
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
       - name: version type
         uses: actions/github-script@v9
         id: version-type
