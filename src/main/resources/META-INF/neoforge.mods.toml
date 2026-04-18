@@ -33,7 +33,7 @@ side="BOTH"
 [[dependencies.villager_inventory_hwyla_plugin]]
 modId="kotlinforforge"
 type="optional"
-versionRange=""
+versionRange="[6.1,)"
 ordering="NONE"
 side="BOTH"
 
