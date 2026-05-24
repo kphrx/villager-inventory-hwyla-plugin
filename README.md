@@ -4,8 +4,12 @@
 [![Modrinth Game Versions][Modrinth-Badge-Game]][Modrinth-Page]
 
 Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
-<!-- modrinth_exclude.end -->
 
+[Modrinth-Page]: https://modrinth.com/mod/villager-inventory-hwyla-plugin
+[Modrinth-Badge-Version]: https://img.shields.io/modrinth/v/ESa9RivE?style=flat-square
+[Modrinth-Badge-Game]: https://img.shields.io/modrinth/game-versions/ESa9RivE?style=flat-square
+
+<!-- modrinth_exclude.end -->
 ## Requirements
 - Jade or WTHIT
 - A Kotlin library. (needs to load `org.jetbrains.kotlin:kotlin-stdlib`)
@@ -13,18 +17,7 @@ Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
     - (with Jade) This mod's entrypoint provider is required.
   - NeoForge:
     - **Kotlin for Forge**: [GitHub][KotlinForForge-GitHub], [Modrinth][KotlinForForge-Modrinth], [CurseForge][KotlinForForge-CurseForge]
-    - **KotlinLangForge**: [GitHub][KotlinLangForge-GitHub], [Modrinth][KotlinLangForge-Modrinth]
-
-## Example
-| Mob      | Jade                                         | WTHIT                                          |
-|---------:|----------------------------------------------|------------------------------------------------|
-| Villager | ![Villager's tooltip in Jade][Villager-Jade] | ![Villager's tooltip in WTHIT][Villager-WTHIT] |
-|    Allay | ![Allay's tooltip in Jade][Allay-Jade]       | ![Allay's tooltip in WTHIT][Allay-WTHIT]       |
-|   Piglin | ![Piglin's tooltip in Jade][Piglin-Jade]     | ![Piglin's tooltip in WTHIT][Piglin-WTHIT]     |
-
-[Modrinth-Page]: https://modrinth.com/mod/villager-inventory-hwyla-plugin
-[Modrinth-Badge-Version]: https://img.shields.io/modrinth/v/ESa9RivE?style=flat-square
-[Modrinth-Badge-Game]: https://img.shields.io/modrinth/game-versions/ESa9RivE?style=flat-square
+    - **KotlinLangForge**: [GitHub][KotlinLangForge-GitHub], [Modrinth][KotlinLangForge-Modrinth], [CurseForge][KotlinLangForge-CurseForge]
 
 [fabric-language-kotlin-GitHub]: https://github.com/FabricMC/fabric-language-kotlin
 [fabric-language-kotlin-CurseForge]: https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin
@@ -34,6 +27,14 @@ Show villager's inventory slots to Hwyla's tooltip. Supported Jade or WTHIT.
 [KotlinForForge-Modrinth]: https://modrinth.com/mod/kotlin-for-forge
 [KotlinLangForge-GitHub]: https://github.com/btwonion/KotlinLangForge
 [KotlinLangForge-Modrinth]: https://modrinth.com/mod/kotlin-lang-forge
+[KotlinLangForge-CurseForge]: https://www.curseforge.com/minecraft/mc-mods/kotlinlangforge
+
+## Example
+| Mob      | Jade                                         | WTHIT                                          |
+|---------:|----------------------------------------------|------------------------------------------------|
+| Villager | ![Villager's tooltip in Jade][Villager-Jade] | ![Villager's tooltip in WTHIT][Villager-WTHIT] |
+|    Allay | ![Allay's tooltip in Jade][Allay-Jade]       | ![Allay's tooltip in WTHIT][Allay-WTHIT]       |
+|   Piglin | ![Piglin's tooltip in Jade][Piglin-Jade]     | ![Piglin's tooltip in WTHIT][Piglin-WTHIT]     |
 
 [Villager-Jade]: https://cdn.modrinth.com/data/ESa9RivE/images/ea127410a4c913adb12de3104699331b622ae604.png
 [Allay-Jade]: https://cdn.modrinth.com/data/ESa9RivE/images/7a91a6720b21355b44afe5ad56e0800403755981.png
