@@ -1,0 +1,48 @@
+name: Bug report
+description: Create a report to help us improve
+title: '[Bug]: '
+body:
+  - type: input
+    id: mod-version
+    attributes:
+      label: Using version
+      placeholder: 2.0.2, 1.0.2
+    validations:
+      required: true
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Version of Minecraft
+      placeholder: 1.21.1, 26.1
+    validations:
+      required: true
+  - type: dropdown
+    id: mod-loader-kind
+    attributes:
+      label: Using mod loader
+      options:
+        - Fabric (or forks)
+        - NeoForge (or forks)
+    validations:
+      required: true
+  - type: input
+    id: mod-loader-version
+    attributes:
+      label: Version of mod loader
+  - type: dropdown
+    id: hwyla-kind
+    attributes:
+      label: Using Hwyla forks
+      options:
+        - Jade
+        - WTHIT
+    validations:
+      required: true
+  - type: input
+    id: hwyla-version
+    attributes:
+      label: Version of Hwyla forks
+      description: You're using Jade/WTHIT version
+      placeholder: e.g. 15.7.0, 15.7.0+fabric; 12.4.0, neo-12.4.0
+    validations:
+      required: true
