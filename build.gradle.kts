@@ -130,7 +130,7 @@ modrinth {
   if (providers.gradleProperty("minecraft_forward_compatible_versions").isPresent) {
     val minecraft_forward_compatible_versions: String by project
     gameVersions.addAll(
-        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" }
+        minecraft_forward_compatible_versions.split(",").map { it.trim() }.filter { it != "" },
     )
   }
   loaders.addAll("fabric", "neoforge")
@@ -157,7 +157,7 @@ modrinthTask {
       if (result != null) {
         val outputFile = file(System.getenv("GITHUB_OUTPUT")).bufferedWriter()
         outputFile.appendLine(
-            "version_url=https://modrinth.com/mod/${result.projectId}/version/${result.id}"
+            "version_url=https://modrinth.com/mod/${result.projectId}/version/${result.id}",
         )
         outputFile.close()
       }
